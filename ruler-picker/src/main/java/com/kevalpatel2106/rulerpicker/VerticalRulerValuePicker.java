@@ -354,7 +354,9 @@ public final class VerticalRulerValuePicker extends FrameLayout implements Obser
 
     @Override
     public void onScrollChanged() {
-        if (mListener != null) mListener.onIntermediateValueChange(getCurrentValue());
+        if (mListener != null) {
+            mListener.onIntermediateValueChange(getCurrentValue());
+        }
     }
 
     @Override

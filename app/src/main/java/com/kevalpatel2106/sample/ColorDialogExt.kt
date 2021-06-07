@@ -15,7 +15,7 @@ package com.kevalpatel2106.sample
 
 import android.app.Activity
 import android.graphics.Color
-import android.support.annotation.StringRes
+import androidx.annotation.StringRes
 import com.jaredrummler.android.colorpicker.ColorPickerDialog
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener
 import com.jaredrummler.android.colorpicker.ColorShape
@@ -31,33 +31,33 @@ internal const val TEXT_COLOR_PICKER_DIALOG_ID = 1
 internal const val INDICATOR_COLOR_PICKER_DIALOG_ID = 2
 
 fun createColorPicker(
-        activity: Activity,
-        @StringRes titleRes: Int,
-        dialogId: Int,
-        listener: ColorPickerDialogListener
+    activity: Activity,
+    @StringRes titleRes: Int,
+    dialogId: Int,
+    listener: ColorPickerDialogListener
 ) {
     val dialog = ColorPickerDialog.newBuilder()
-            .setDialogTitle(titleRes)
-            .setColor(Color.BLUE)
-            .setColor(Color.RED)
-            .setColor(Color.GRAY)
-            .setColor(Color.GREEN)
-            .setColor(Color.DKGRAY)
-            .setColor(Color.BLACK)
-            .setColor(Color.LTGRAY)
-            .setColor(Color.CYAN)
-            .setColor(Color.MAGENTA)
-            .setColor(Color.WHITE)
-            .setColor(Color.YELLOW)
-            .setAllowCustom(true)
-            .setColorShape(ColorShape.CIRCLE)
-            .setCustomButtonText(R.string.pick_custom_color_btn_title)
-            .setDialogType(ColorPickerDialog.TYPE_PRESETS)
-            .setShowAlphaSlider(true)
-            .setShowColorShades(true)
-            .setDialogId(dialogId)
-            .create()
+        .setDialogTitle(titleRes)
+        .setColor(Color.BLUE)
+        .setColor(Color.RED)
+        .setColor(Color.GRAY)
+        .setColor(Color.GREEN)
+        .setColor(Color.DKGRAY)
+        .setColor(Color.BLACK)
+        .setColor(Color.LTGRAY)
+        .setColor(Color.CYAN)
+        .setColor(Color.MAGENTA)
+        .setColor(Color.WHITE)
+        .setColor(Color.YELLOW)
+        .setAllowCustom(true)
+        .setColorShape(ColorShape.CIRCLE)
+        .setCustomButtonText(R.string.pick_custom_color_btn_title)
+        .setDialogType(ColorPickerDialog.TYPE_PRESETS)
+        .setShowAlphaSlider(true)
+        .setShowColorShades(true)
+        .setDialogId(dialogId)
+        .create()
 
     dialog.setColorPickerDialogListener(listener)
-    dialog.show(activity.fragmentManager, dialogId.toString())
+    dialog.show((activity as RulerDemoActivity).supportFragmentManager, dialogId.toString())
 }

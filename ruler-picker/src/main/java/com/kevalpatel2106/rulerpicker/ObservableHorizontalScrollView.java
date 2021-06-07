@@ -15,9 +15,11 @@ package com.kevalpatel2106.rulerpicker;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
 import android.widget.HorizontalScrollView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * Created by Kevalpatel2106 on 29-Mar-2018.
@@ -66,10 +68,14 @@ final class ObservableHorizontalScrollView extends HorizontalScrollView {
                                    final int oldHorizontalOrigin,
                                    final int oldVerticalOrigin) {
         super.onScrollChanged(horizontalOrigin, verticalOrigin, oldHorizontalOrigin, oldVerticalOrigin);
-        if (mScrollChangedListener == null) return;
+        if (mScrollChangedListener == null) {
+            return;
+        }
         mScrollChangedListener.onScrollChanged();
 
-        if (mLastScrollUpdateMills == -1) postDelayed(mScrollerTask, NEW_CHECK_DURATION);
+        if (mLastScrollUpdateMills == -1) {
+            postDelayed(mScrollerTask, NEW_CHECK_DURATION);
+        }
         mLastScrollUpdateMills = System.currentTimeMillis();
     }
 

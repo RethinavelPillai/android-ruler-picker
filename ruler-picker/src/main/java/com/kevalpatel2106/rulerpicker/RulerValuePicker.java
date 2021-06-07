@@ -23,18 +23,20 @@ import android.graphics.Path;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.CheckResult;
-import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
-import android.support.annotation.DimenRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
+
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+
+import androidx.annotation.CheckResult;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DimenRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 
 /**
@@ -345,7 +347,9 @@ public final class RulerValuePicker extends FrameLayout implements ObservableHor
 
     @Override
     public void onScrollChanged() {
-        if (mListener != null) mListener.onIntermediateValueChange(getCurrentValue());
+        if (mListener != null) {
+            mListener.onIntermediateValueChange(getCurrentValue());
+        }
     }
 
     @Override
@@ -661,10 +665,12 @@ public final class RulerValuePicker extends FrameLayout implements ObservableHor
 
         public static final Parcelable.Creator<SavedState> CREATOR =
                 new Parcelable.Creator<SavedState>() {
+                    @Override
                     public SavedState createFromParcel(Parcel in) {
                         return new SavedState(in);
                     }
 
+                    @Override
                     public SavedState[] newArray(int size) {
                         return new SavedState[size];
                     }
